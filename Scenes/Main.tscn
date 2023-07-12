@@ -1,0 +1,190 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Images/title.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Category.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Images/bg_pix.png" type="Texture" id=4]
+[ext_resource path="res://Images/kofi12.png" type="Texture" id=5]
+[ext_resource path="res://Images/blinky.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/VCR.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Images/LongButton_White_Pressed.png" type="Texture" id=8]
+[ext_resource path="res://Images/LongButton_White.png" type="Texture" id=9]
+[ext_resource path="res://Images/Icons/16/13-twin-cherries.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/HelpDialog.tscn" type="PackedScene" id=11]
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 7
+outline_color = Color( 0.364706, 0.364706, 0.364706, 1 )
+font_data = ExtResource( 7 )
+
+[sub_resource type="Theme" id=2]
+default_font = SubResource( 3 )
+
+[node name="Main" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.972549, 0.972549, 0.941176, 1 )
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+self_modulate = Color( 1, 1, 1, 0.517647 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -539.0
+margin_bottom = -947.0
+rect_scale = Vector2( 2, 2 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 2
+
+[node name="Logo" type="TextureRect" parent="."]
+margin_top = 65.0
+margin_right = 1080.0
+margin_bottom = 365.0
+texture = ExtResource( 1 )
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer"]
+margin_right = 1080.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 0, 520 )
+
+[node name="Categories" type="VBoxContainer" parent="VBoxContainer"]
+margin_top = 524.0
+margin_right = 1080.0
+margin_bottom = 1849.0
+custom_constants/separation = 75
+
+[node name="Category1" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_right = 1080.0
+margin_bottom = 100.0
+
+[node name="Category2" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 175.0
+margin_right = 1080.0
+margin_bottom = 275.0
+
+[node name="Category3" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 350.0
+margin_right = 1080.0
+margin_bottom = 450.0
+
+[node name="Category4" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 525.0
+margin_right = 1080.0
+margin_bottom = 625.0
+
+[node name="Category5" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 700.0
+margin_right = 1080.0
+margin_bottom = 800.0
+
+[node name="Category6" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 875.0
+margin_right = 1080.0
+margin_bottom = 975.0
+
+[node name="Category7" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+margin_top = 1050.0
+margin_right = 1080.0
+margin_bottom = 1150.0
+
+[node name="Help" type="Control" parent="VBoxContainer/Categories"]
+margin_top = 1225.0
+margin_right = 1080.0
+margin_bottom = 1325.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="Category" type="HBoxContainer" parent="VBoxContainer/Categories/Help"]
+anchor_right = 1.0
+margin_bottom = 100.0
+alignment = 1
+
+[node name="Icon" type="TextureRect" parent="VBoxContainer/Categories/Help/Category"]
+margin_left = 435.0
+margin_right = 525.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 90, 90 )
+texture = ExtResource( 10 )
+expand = true
+stretch_mode = 6
+
+[node name="Margin" type="MarginContainer" parent="VBoxContainer/Categories/Help/Category"]
+margin_left = 529.0
+margin_right = 549.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 20, 0 )
+
+[node name="Label" type="Label" parent="VBoxContainer/Categories/Help/Category"]
+margin_left = 553.0
+margin_top = 32.0
+margin_right = 645.0
+margin_bottom = 68.0
+theme = SubResource( 2 )
+text = "Help"
+
+[node name="HelpButton" type="TextureButton" parent="VBoxContainer/Categories/Help"]
+self_modulate = Color( 1, 0.588235, 0.839216, 1 )
+show_behind_parent = true
+margin_left = 513.0
+margin_top = 41.0
+margin_right = 568.0
+margin_bottom = 62.0
+rect_scale = Vector2( 8, 7.5 )
+rect_pivot_offset = Vector2( 27.8265, 9.0102 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 8 )
+
+[node name="Margin3" type="MarginContainer" parent="VBoxContainer"]
+margin_top = 1853.0
+margin_right = 1080.0
+margin_bottom = 1953.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="CoffeeButton" type="TextureButton" parent="."]
+margin_left = 103.0
+margin_top = 343.0
+margin_right = 820.0
+margin_bottom = 459.0
+rect_min_size = Vector2( 0, 100 )
+rect_scale = Vector2( 1.2, 1.2 )
+texture_normal = ExtResource( 5 )
+expand = true
+stretch_mode = 3
+
+[node name="Blinky" type="TextureRect" parent="."]
+margin_left = 79.0
+margin_top = 500.0
+margin_right = 289.0
+margin_bottom = 710.0
+rect_rotation = 42.4
+texture = ExtResource( 6 )
+
+[node name="HelpDialog" parent="." instance=ExtResource( 11 )]
+visible = false
+
+[connection signal="pressed" from="VBoxContainer/Categories/Help/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="CoffeeButton" to="." method="_on_CoffeeButton_pressed"]
