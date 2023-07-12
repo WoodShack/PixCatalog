@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Images/title.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=2]
@@ -7,19 +7,18 @@
 [ext_resource path="res://Images/kofi12.png" type="Texture" id=5]
 [ext_resource path="res://Images/blinky.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/VCR.ttf" type="DynamicFontData" id=7]
-[ext_resource path="res://Images/LongButton_White_Pressed.png" type="Texture" id=8]
-[ext_resource path="res://Images/LongButton_White.png" type="Texture" id=9]
-[ext_resource path="res://Images/Icons/16/13-twin-cherries.png" type="Texture" id=10]
+[ext_resource path="res://Images/SquareButton_White.png" type="Texture" id=8]
+[ext_resource path="res://Images/SquareButton_White_Pressed.png" type="Texture" id=9]
 [ext_resource path="res://Scenes/HelpDialog.tscn" type="PackedScene" id=11]
 
-[sub_resource type="DynamicFont" id=3]
-size = 40
+[sub_resource type="DynamicFont" id=1]
+size = 80
 outline_size = 7
 outline_color = Color( 0.364706, 0.364706, 0.364706, 1 )
 font_data = ExtResource( 7 )
 
 [sub_resource type="Theme" id=2]
-default_font = SubResource( 3 )
+default_font = SubResource( 1 )
 
 [node name="Main" type="Control"]
 anchor_right = 1.0
@@ -112,57 +111,45 @@ margin_top = 1050.0
 margin_right = 1080.0
 margin_bottom = 1150.0
 
-[node name="Help" type="Control" parent="VBoxContainer/Categories"]
+[node name="Category8" parent="VBoxContainer/Categories" instance=ExtResource( 3 )]
+unique_name_in_owner = true
+anchor_right = 0.0
 margin_top = 1225.0
 margin_right = 1080.0
 margin_bottom = 1325.0
-rect_min_size = Vector2( 0, 100 )
-
-[node name="Category" type="HBoxContainer" parent="VBoxContainer/Categories/Help"]
-anchor_right = 1.0
-margin_bottom = 100.0
-alignment = 1
-
-[node name="Icon" type="TextureRect" parent="VBoxContainer/Categories/Help/Category"]
-margin_left = 435.0
-margin_right = 525.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 90, 90 )
-texture = ExtResource( 10 )
-expand = true
-stretch_mode = 6
-
-[node name="Margin" type="MarginContainer" parent="VBoxContainer/Categories/Help/Category"]
-margin_left = 529.0
-margin_right = 549.0
-margin_bottom = 100.0
-rect_min_size = Vector2( 20, 0 )
-
-[node name="Label" type="Label" parent="VBoxContainer/Categories/Help/Category"]
-margin_left = 553.0
-margin_top = 32.0
-margin_right = 645.0
-margin_bottom = 68.0
-theme = SubResource( 2 )
-text = "Help"
-
-[node name="HelpButton" type="TextureButton" parent="VBoxContainer/Categories/Help"]
-self_modulate = Color( 1, 0.588235, 0.839216, 1 )
-show_behind_parent = true
-margin_left = 513.0
-margin_top = 41.0
-margin_right = 568.0
-margin_bottom = 62.0
-rect_scale = Vector2( 8, 7.5 )
-rect_pivot_offset = Vector2( 27.8265, 9.0102 )
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 8 )
 
 [node name="Margin3" type="MarginContainer" parent="VBoxContainer"]
 margin_top = 1853.0
 margin_right = 1080.0
 margin_bottom = 1953.0
 rect_min_size = Vector2( 0, 100 )
+
+[node name="Help" type="Control" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -228.0
+margin_bottom = 341.0
+rect_min_size = Vector2( 0, 100 )
+
+[node name="HelpButton" type="TextureButton" parent="Help"]
+self_modulate = Color( 1, 0.588235, 0.839216, 1 )
+show_behind_parent = true
+margin_left = 257.0
+margin_top = 226.0
+margin_right = 272.0
+margin_bottom = 243.0
+rect_scale = Vector2( 8, 7.5 )
+rect_pivot_offset = Vector2( 27.8265, 9.0102 )
+texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 9 )
+
+[node name="Label" type="Label" parent="Help"]
+margin_left = 98.0
+margin_top = 184.0
+margin_right = 145.0
+margin_bottom = 255.0
+theme = SubResource( 2 )
+text = "?"
 
 [node name="CoffeeButton" type="TextureButton" parent="."]
 margin_left = 103.0
@@ -186,5 +173,5 @@ texture = ExtResource( 6 )
 [node name="HelpDialog" parent="." instance=ExtResource( 11 )]
 visible = false
 
-[connection signal="pressed" from="VBoxContainer/Categories/Help/HelpButton" to="." method="_on_HelpButton_pressed"]
+[connection signal="pressed" from="Help/HelpButton" to="." method="_on_HelpButton_pressed"]
 [connection signal="pressed" from="CoffeeButton" to="." method="_on_CoffeeButton_pressed"]

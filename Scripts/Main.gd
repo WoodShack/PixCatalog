@@ -41,6 +41,11 @@ func _init_categories():
 	$"%Category7".set_label("Special")
 	$"%Category7".set_category("96")
 	$"%Category7".connect("category",self,"_category_selected")
+	
+	$"%Category8".set_icon(load("res://Images/Icons/party.png"))
+	$"%Category8".set_label("Pix Party!")
+	$"%Category8".set_category("112")
+	$"%Category8".connect("category",self,"_category_selected")
 
 func _on_CoffeeButton_pressed():
 	OS.shell_open("https://ko-fi.com/D1D02EEDN")
