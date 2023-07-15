@@ -5,8 +5,30 @@ extends Control
 func _ready():
 	#add_child(downloadQR)
 	_init_categories()
-	
+	_init_character()
+
+func _init_character():
+	var favourite_data = Favorites.get_fav_data(
+		Global.get_selected_char())
+		
+	$"%Icon".texture = load(
+		"res://Images/Characters/"+
+		str(Global.get_selected_char())+
+		".png")
+		
+	$"%Label".text = favourite_data["name"]
+
 func _init_categories():
+	$"%Favourites".set_icon(load("res://Images/heart.png"))
+	$"%Favourites".set_label("Favourites")
+	$"%Favourites".set_category("128")
+	$"%Favourites".connect("category",self,"_category_selected")
+	
+	$"%Dislikes".set_icon(load("res://Images/cross.png"))
+	$"%Dislikes".set_label("Dislikes")
+	$"%Dislikes".set_category("144")
+	$"%Dislikes".connect("category",self,"_category_selected")
+	
 	$"%Category1".set_icon(load("res://Images/Icons/meal.png"))
 	$"%Category1".set_label("Meals")
 	$"%Category1".set_category("00")
@@ -53,6 +75,16 @@ func _on_CoffeeButton_pressed():
 func _category_selected(category):
 	Global.selected_category = category
 	get_tree().change_scene("res://Scenes/Browse.tscn")
+	
 
 func _on_HelpButton_pressed():
 	$HelpDialog.visible = true
+
+func _on_CreditsButton_pressed():
+	$CreditsDialog.visible = true
+
+func _on_DiscordButton_pressed():
+	OS.shell_open("https://discord.gg/V68JUzSMJJ")
+
+func _on_CharacterButton_pressed():
+	get_tree().change_scene("res://Scenes/CharacterBrowse.tscn")

@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fonts/VCR.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Images/Icons/48/2-ribbon-headband.png" type="Texture" id=2]
 [ext_resource path="res://Images/SquareButton_White.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/Item.gd" type="Script" id=4]
+[ext_resource path="res://Images/heart.png" type="Texture" id=5]
+[ext_resource path="res://Images/cross.png" type="Texture" id=6]
 
 [sub_resource type="DynamicFont" id=5]
 size = 42
@@ -78,5 +80,25 @@ margin_top = 13.0
 margin_right = 1043.0
 margin_bottom = 274.0
 mouse_filter = 1
+
+[node name="Favourite" type="TextureRect" parent="."]
+visible = false
+margin_left = 954.0
+margin_top = 12.0
+margin_right = 1042.0
+margin_bottom = 100.0
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Dislike" type="TextureRect" parent="."]
+visible = false
+self_modulate = Color( 1, 0, 0, 1 )
+margin_left = 966.0
+margin_top = 17.0
+margin_right = 1030.0
+margin_bottom = 81.0
+rect_min_size = Vector2( 60, 60 )
+texture = ExtResource( 6 )
+stretch_mode = 6
 
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

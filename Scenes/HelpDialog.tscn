@@ -10,23 +10,23 @@
 [sub_resource type="DynamicFontData" id=6]
 font_path = "res://Fonts/VCR.ttf"
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=10]
 size = 50
 outline_size = 8
 outline_color = Color( 0.417969, 0.12735, 0.30368, 1 )
 font_data = SubResource( 6 )
 
 [sub_resource type="Theme" id=7]
-default_font = SubResource( 5 )
+default_font = SubResource( 10 )
 
-[sub_resource type="DynamicFont" id=8]
+[sub_resource type="DynamicFont" id=11]
 size = 60
 outline_size = 7
 outline_color = Color( 0.364706, 0.364706, 0.364706, 1 )
 font_data = ExtResource( 3 )
 
 [sub_resource type="Theme" id=9]
-default_font = SubResource( 8 )
+default_font = SubResource( 11 )
 
 [node name="HelpDialog" type="Control"]
 anchor_right = 1.0
